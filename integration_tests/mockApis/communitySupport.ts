@@ -13,6 +13,7 @@ import {
   SubmitReferralResponse,
   TaskListStatusDto,
   CaseWorkerDto,
+  NeedsInterpreterBffResponseDto,
 } from '@community-support-api'
 import { stubFor } from './wiremock'
 import { duplicateData } from '../testUtils'
@@ -661,6 +662,49 @@ export default {
         status: httpStatus,
         headers: { 'Content-Type': 'application/json;charset=UTF-8' },
         jsonBody: response,
+        transformers: ['response-template'],
+      },
+    }),
+  stubSubmitAdditionalSupportNeeds: (referralId: string, httpStatus = 200): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'PATCH',
+        urlPathPattern: `/community-support/draft-referral/additional-support-needs/${referralId}`,
+      },
+      response: {
+        status: httpStatus,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: {},
+        transformers: ['response-template'],
+      },
+    }),
+  stubGetNeedsAnInterpreter: (
+    referralId: string,
+    needs: NeedsInterpreterBffResponseDto,
+    httpStatus = 200,
+  ): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'GET',
+        urlPathPattern: `/community-support/bff/draft-referral/needs-interpreter/${referralId}`,
+      },
+      response: {
+        status: httpStatus,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: needs,
+        transformers: ['response-template'],
+      },
+    }),
+  stubSubmitNeedsAnInterpreter: (referralId: string, httpStatus = 200): SuperAgentRequest =>
+    stubFor({
+      request: {
+        method: 'PATCH',
+        urlPathPattern: `/community-support/draft-referral/needs-interpreter/${referralId}`,
+      },
+      response: {
+        status: httpStatus,
+        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        jsonBody: {},
         transformers: ['response-template'],
       },
     }),

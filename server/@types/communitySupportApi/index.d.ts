@@ -36,7 +36,6 @@ type ConfirmPersonDetailsBffDto = components['schemas']['ConfirmPersonDetailsBff
 type AdditionalSupportNeedsDto = components['schemas']['AdditionalSupportNeedsBffResponseDto']
 type ServiceEndDatePageDto = components['schemas']['ServiceEndDatePageDto']
 type NeedsInterpreterBffResponseDto = components['schemas']['NeedsInterpreterBffResponseDto']
-type Selection = components['schemas']['Selection']
 type CommunitySupportRiskDto = components['schemas']['CommunitySupportRiskDto']
 type ActionPlanSummaryDto = components['schemas']['ActionPlanSummaryDto']
 type ArnsRiskConcernsToSelfDto = components['schemas']['ArnsRiskConcernsToSelfDto']
@@ -45,6 +44,10 @@ type ArnsRiskRoshSummaryDto = components['schemas']['ArnsRiskRoshSummaryDto']
 type CommunitySupportRiskInformationDto = components['schemas']['CommunitySupportRiskInformationDto']
 type ReferralCriminogenicNeedsDto = components['schemas']['ReferralCriminogenicNeedsDto']
 type CriminogenicNeedsRequest = components['schemas']['CriminogenicNeedsRequest']
+type AdditionalSupportNeedsRequest = components['schemas']['AdditionalSupportNeedsRequest']
+type NeedsInterpreterRequest = components['schemas']['NeedsInterpreterRequest']
+
+type Selection = components['schemas']['No'] | components['schemas']['Unanswered'] | components['schemas']['Yes']
 
 export type {
   Referral,
@@ -91,4 +94,6 @@ export type {
   CommunitySupportRiskInformationDto,
   ReferralCriminogenicNeedsDto,
   CriminogenicNeedsRequest,
+  AdditionalSupportNeedsRequest,
+  NeedsInterpreterRequest,
 }
